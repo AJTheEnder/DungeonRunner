@@ -1,0 +1,8 @@
+﻿  Boss.cpp
+C:\Users\Nicolas\Documents\Devoirs confinement 2\Projet 1\Dungeon old\Dungeon\Boss.cpp(49,16): warning C4244: 'initialisation' : conversion de 'clock_t' en 'float', perte possible de données
+  Events.cpp
+  Hero.cpp
+  Maze.cpp
+  prog.cpp
+  Génération de code en cours...
+  Dungeon.vcxproj -> C:\Users\Nicolas\Documents\Devoirs confinement 2\Projet 1\Dungeon old\x64\Debug\Dungeon.exe
