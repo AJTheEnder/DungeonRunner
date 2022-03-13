@@ -3,6 +3,8 @@
 #include "Boss.h"
 #include <iostream>
 #include <LibGraph2.h>
+#include <time.h>
+#include <random>
 using namespace LibGraph2;
 using namespace std;
 
@@ -68,6 +70,7 @@ void DropEvent(CHero& hero)
 //Procédure de l'évenement combat
 void FightEvent(CHero& hero, CCase& monsterCase)
 {
+	srand(time(0));
 	ILibGraph2* libgraph = GetLibGraph2();
 	//Aspect graphique (A FAIRE)
 	//Création du monstre avec un type en fonction de la position de la case dans le labyrinthe
@@ -76,9 +79,19 @@ void FightEvent(CHero& hero, CCase& monsterCase)
 	if (monsterCase.getPosY() <= 1)
 		ennemy.setType(0);
 	if (monsterCase.getPosY() > 1 && monsterCase.getPosY() <= 4)
-		ennemy.setType(1);
+	{
+		if (rand() % 2 == 0)
+			ennemy.setType(1);
+		else
+			ennemy.setType(3);
+	}
 	if (monsterCase.getPosY() > 4)
-		ennemy.setType(2);
+	{
+		if (rand() % 2 == 0)
+			ennemy.setType(2);
+		else
+			ennemy.setType(4);
+	}
 	switch (ennemy.getType())
 	{
 	case(0):
@@ -89,6 +102,12 @@ void FightEvent(CHero& hero, CCase& monsterCase)
 		break;
 	case(2):
 		libgraph->drawBitmap("img/tiles/Monster/neutral_skeleton.png", CPoint{ 10, 60 }, 30 * 40 / 640.0f);
+		break;
+	case(3):
+		libgraph->drawBitmap("img/tiles/Monster/neutral_ghost.png", CPoint{ 10, 60 }, 30 * 40 / 640.0f);
+		break;
+	case(4):
+		libgraph->drawBitmap("img/tiles/Monster/neutral_unknown.png", CPoint{ 10, 60 }, 30 * 40 / 640.0f);
 		break;
 	}
 	libgraph->drawBitmap("img/neutral_hero.png", CPoint{ 165, 60 }, 30 * 40 / 640.0f);
@@ -134,6 +153,7 @@ void FightEvent(CHero& hero, CCase& monsterCase)
 
 void BossFightEvent(CHero& hero, CCase& bossCase)
 {
+	srand(time(0));
 	ILibGraph2* libgraph = GetLibGraph2();
 	//Aspect graphqie (A FAIRE)
 	//Création du boss (soit dragon, soit golem)

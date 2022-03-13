@@ -36,6 +36,18 @@ void CMonster::setType(int type) //Initialisation du type de monstre
 		m_nMonsterAD = 3;
 		m_nGoldValue = 5;
 		break;
+	case(3): //Ghost (9pv, 5dmg, 5gold)
+		m_nType = type;
+		m_nMonsterHealth = 2;
+		m_nMonsterAD = 3;
+		m_nGoldValue = 3;
+		break;
+	case(4): //Skeleton (9pv, 5dmg, 5gold)
+		m_nType = type;
+		m_nMonsterHealth = 5;
+		m_nMonsterAD = 4;
+		m_nGoldValue = 5;
+		break;
 	}
 }
 
