@@ -160,9 +160,15 @@ void BossFightEvent(CHero& hero, CCase& bossCase)
 	libgraph->drawBitmap("img/tiles/background.png", CPoint{ 0, 0 }, 30 * 110 / 640.0f);
 	CBoss ennemy;
 	if (bossCase.getPosX() == 0)
-		ennemy.setBossType(0);
+		if (rand() % 2 == 0)
+			ennemy.setBossType(0);
+		else
+			ennemy.setBossType(2);;
 	if (bossCase.getPosX() == 8)
-		ennemy.setBossType(1);
+		if (rand() % 2 == 0)
+			ennemy.setBossType(1);
+		else
+			ennemy.setBossType(3);
 	switch (ennemy.getBossType())
 	{
 	case(0):
@@ -170,6 +176,12 @@ void BossFightEvent(CHero& hero, CCase& bossCase)
 		break;
 	case(1):
 		libgraph->drawBitmap("img/tiles/Monster/neutral_dragon.png", CPoint{ 10, 40 }, 30 * 45 / 640.0f);
+		break;
+	case(2):
+		libgraph->drawBitmap("img/tiles/Monster/neutral_megaghost.png", CPoint{ 10, 40 }, 30 * 45 / 640.0f);
+		break;
+	case(3):
+		libgraph->drawBitmap("img/tiles/Monster/neutral_abomination.png", CPoint{ 10, 40 }, 30 * 45 / 640.0f);
 		break;
 	}
 	libgraph->drawBitmap("img/neutral_hero.png", CPoint{ 165, 60 }, 30 * 40 / 640.0f);

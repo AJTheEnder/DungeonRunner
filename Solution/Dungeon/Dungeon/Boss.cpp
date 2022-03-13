@@ -24,13 +24,23 @@ void CBoss::setBossType(int type)
 
 	case(0):
 		m_nBossType = type;
-		m_nBossHealth = 50;
-		m_nBossAD = 5;
+		m_nBossHealth = 60;
+		m_nBossAD = 4;
 		break;
 	case(1):
 		m_nBossType = type;
 		m_nBossHealth = 35;
 		m_nBossAD = 6;
+		break;
+	case(2):
+		m_nBossType = type;
+		m_nBossHealth = 25;
+		m_nBossAD = 7;
+		break;
+	case(3):
+		m_nBossType = type;
+		m_nBossHealth = 50;
+		m_nBossAD = 5;
 		break;
 	}
 }
